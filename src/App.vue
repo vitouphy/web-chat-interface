@@ -1,34 +1,27 @@
 <template>
   <div id="app">
-    
-    <!-- Particle Background -->
-    <vue-particles class="particle" color="#bc97ec"  linesColor="#ceb6ec"></vue-particles>
-
-    <div style="position: relative; height: 100vh;">
-    <div class="center-vertical">
+   <!-- Particle Background -->
+    <vue-particles style="z-index:1" class="particle" color="#bc97ec"  linesColor="#ceb6ec"></vue-particles>
+    <!-- The chat box -->
+    <div  style="display: table-cell; vertical-align: middle; position: relative; top: -5%;">
       <div>
         <h1 style="margin-bottom: 0;">Sandy Chatbot</h1>
         <h3>Your Chatting Companion</h3>
         <br/>
       </div>
-      <div><basic-vue-chat :title="'CHAT HERE'" :new-message="message" @newOwnMessage="onNewOwnMessage" /></div>
-    </div>
+      <div><basic-vue-chat style="z-index: 2" :title="'CHAT HERE'" :new-message="message" @newOwnMessage="onNewOwnMessage" /></div>
     </div>
 
-  </div>
+ </div>
 </template>
 
 <script>
+
 import BasicVueChat from 'basic-vue-chat'
-
-// import VueFontAwesome from '@fortawesome/vue-fontawesome'
-
 export default {
   name: 'App',
   components: {
     BasicVueChat,
-    // VueParticles
-    // VueFontAwesome
   },
   data: function(){
     return {
@@ -66,37 +59,22 @@ export default {
   height: 100%;
 }
 
-.over {
-   position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0; 
+.basic-vue-chat {
+  margin: 0 10px 0 10px;
 }
 
 .basic-vue-chat .window {
   margin: 0 auto;
-  width: 700px;
-  height: 500px;
-  /* max-width: 350px; */
-  /* height: 100%; */
+  
 }
 
 .center-vertical {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-60%);
-  -ms-transform: translateY(-60%);
-  transform: translateY(-60%);
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.basic-vue-chat #window__messages__container {
+.basic-vue-chat #window__messages__container, .basic-vue-chat .window__input__container  {
   background-color: white;
-  z-index: 1;
-}
-
-.basic-vue-chat .window__input__container {
-  background: white;
   z-index: 1;
 }
 
@@ -106,8 +84,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
-  /* position: relative; */
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 </style>
