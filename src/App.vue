@@ -80,6 +80,14 @@ export default {
 
 }
 
+.message--own {
+    text-align: right;
+}
+
+.message--foreign {
+    text-align: left;
+}
+
 .center-vertical {
     display: table-cell;
     vertical-align: middle;
